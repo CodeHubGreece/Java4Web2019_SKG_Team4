@@ -9,7 +9,7 @@
 </head>
 <body>
        <a href="./login.html"> <img src="https://www.efka.gov.gr/themes/kd/images/logo-lg.png" alt="efka" class="center"> </a>
-​
+​    <form>
     <h3 class="center"> Name:</h3>
     <input type="text" name="Name:" placeholder="Type your Name" class="center">
     <br>
@@ -20,20 +20,24 @@
     <input type="text" name="AMKA" placeholder="Type your AMKA" class="center">
     <br>
     <h3 class="center">Email: </h3>
-    <input type="email" name="Email" placeholder="Type your Email" class="center">
+    <input type="email" name="Email" size="35" placeholder="Type your Email" class="center">
     <br>
     <h3 class="center">UserName: </h3>
     <input type="text" name="UserName" placeholder="Type your UserName" class="center">
     <br>
     <h3 class="center">PassWord: </h3>
-    <input type="password" name="PassWord" placeholder="Type your PassWord" class="center">
+    <input type="password" name="PassWord" maxlength="4" placeholder="Type your PassWord" class="center">
     <br>
     <h3 class="center">Phone: </h3>
-    <input type="text" name="Phone" placeholder="Type your Phone" class="center">
+    <input type="\d*" name="Phone" placeholder="Type your Phone" class="center">
     <br>
     <br>
-    <button type="submit" >Register </button> <br>
+    <button type="submit" onclick="alert('hello world!')" >Register </button> <br>
+    </form>
 ​
 </body>
+<footer>
+    <p>copyright </p>
+</footer>
 ​
 </html>

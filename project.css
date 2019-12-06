@@ -33,6 +33,14 @@ button{
 	width: 15;  
 }
 
+footer{
+	background: #000000;
+    color: #ffffff;
+    position: bottom;
+    text-align: center;
+    z-index: 1;
+}
+
   .center {
     display: block;
     margin-left: auto;
@@ -104,3 +112,7 @@ button{
   .main {
 	margin-left: 200px; /* Same as the width of the sidenav */
   }
+  
+  input{
+    margin: .4rem 0;
+}
