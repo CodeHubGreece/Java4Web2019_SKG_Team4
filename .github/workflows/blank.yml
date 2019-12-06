@@ -1,0 +1,56 @@
+
+use efkaDB;
+
+DROP TABLE IF EXISTS user;
+CREATE TABLE user (
+user_id int UNSIGNED NOT NULL,
+username varchar(20) NOT NULL,
+password varchar(20) NOT NULL,
+PRIMARY KEY (user_id)  
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS citizen;
+CREATE TABLE citizen (
+amka varchar(11) NOT NULL,
+citizen_name varchar(45) NOT NULL,
+citizen_surname varchar(45) NOT NULL,
+citizen_email varchar(45) NOT NULL,
+citizen_phone varchar(45) NOT NULL,
+fk_user_id int UNSIGNED NOT NULL,
+PRIMARY KEY (amka),
+foreign key(fk_user_id) references user(user_id) 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS doctor;
+CREATE TABLE doctor (
+doctor_id int unsigned NOT NULL,
+doctor_name varchar(45) NOT NULL,
+doctor_surname varchar(45) NOT NULL,
+doctor_email varchar(45) NOT NULL,
+doctor_phone varchar(45) NOT NULL,
+user_id int UNSIGNED NOT NULL,
+specialty_id int unsigned NOT NULL,
+PRIMARY KEY (doctor_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS appointment;
+CREATE TABLE appointment (
+appointment_id int unsigned NOT NULL,
+appointment_date date NOT NULL,
+appointment_time time NOT NULL,
+appointment_description varchar(45) NOT NULL,
+appointment_comments varchar(45) NOT NULL,
+amka varchar(11) NOT NULL,
+doctor_id int unsigned NOT NULL,
+PRIMARY KEY (appointment_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+DROP TABLE IF EXISTS specialty;
+CREATE TABLE specialty (
+specialty_id int unsigned NOT NULL,
+specialty_name varchar(45) NOT NULL,
+PRIMARY KEY (specialty_id)  
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
