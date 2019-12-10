@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+​
+
+<head>
+    <title>
+        Appointment page
+    </title>
+    <link rel="stylesheet" type="text/css" href="css\project.css">
+    <link rel="stylesheet" type="text/css" href="css\footer.css">
+    <link rel="stylesheet" type="text/css" href="css\nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="css\searchbar.css">
+
+</head>
+
+<body>
+    <ul class="navbar">
+        <li class="navimg"><a class="active" href="project.html"> <img
+            src="img\efkalogo.png" alt="efka"
+            class="center" width: 30% >  </a> </li>
+        <li class="licl"><a href="#">Log Out</a></li>
+        <li class="licl"> <a class="noclick" href="#">Appointments:</a></li>
+        <li class="licl"><a href="#">Create</a></li>
+        <li class="licl"> <a href="#">Search</a> </li>
+        <li class="licl"> <a href="#">Edit</a></li>
+    </ul>
+    ​ <form>
+        <h3 class="center"> Sector:</h3>
+        <select class="center">
+            <option value="Allergiology">Allergiology</option>
+            <option value="Dermatology">Dermatology</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Urology">Urology</option>
+        </select> <br>
+        <h3 class="center"> Doctor:</h3>
+        <select class="center">
+            <option value="D1">D1</option>
+            <option value="D2">D2</option>
+            <option value="D3">D3</option>
+            <option value="D4">D4</option>
+        </select> <br>
+
+        <h3 class="center">Date and time:</h3>
+
+        <input class="center" type="datetime-local" id="meeting-time" name="meeting-time" value="mm-dd-12T19:30"
+            min="1920-06-07T00:00" max="2030-06-14T00:00"> <br>
+
+        <h3 class="center"> Short explanation:</h3>
+
+        <textarea class="center" placeholder="Tell us a few things about your issue."></textarea> <br>
+
+        <button class="loginbutton" type="submit" onclick="alert('hello world!')"> Submit </button> <br>
+
+    </form>
+    ​
+</body>
+<footer>
+
+    <div class="footer">
+        <div class="nav">
+            <ul>
+                <li><a href="project.html">HOME</a></li>
+                <p>EFKA COPYRIGHT © 2019. ALL RIGHTS RESERVED - DESIGNED BY Team4 </p>
+
+            </ul>
+        </div>
+    </div>
+
+</footer>
+​
+
+</html>
