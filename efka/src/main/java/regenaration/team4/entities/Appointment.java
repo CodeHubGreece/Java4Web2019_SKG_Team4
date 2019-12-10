@@ -25,6 +25,7 @@ public class Appointment implements Serializable {
     }
 
     @Id
+    @Column
     public Integer getAppointment_id() {
         return appointment_id;
     }

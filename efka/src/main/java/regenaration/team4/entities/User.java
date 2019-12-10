@@ -25,6 +25,7 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     public Integer getUser_id() {
 
         return user_id;

@@ -20,6 +20,7 @@ public class Doctor implements Serializable {
     public Doctor(){}
 
     @Id
+    @Column
     public Integer getDoctor_id() {
         return doctor_id;
     }

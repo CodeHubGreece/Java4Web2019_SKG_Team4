@@ -20,6 +20,7 @@ public class Specialty implements Serializable {
     }
 
     @Id
+    @Column
     public Integer getSpecialty_id() {
         return specialty_id;
     }

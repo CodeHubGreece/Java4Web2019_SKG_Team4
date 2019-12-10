@@ -19,6 +19,9 @@ import java.util.List;
 public class Team4Application implements CommandLineRunner {
 
     @Autowired
+    private SpecialtyRepository specialtyRepository;
+
+    @Autowired
     private UserRepository userRepository;
 
     public static void main(String[] args) {SpringApplication.run(Team4Application.class, args);}
@@ -26,12 +29,15 @@ public class Team4Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception{
 
+        List<Specialty> specialties = new ArrayList<>();
+        Specialty specialtyA = new Specialty(1,"kardiologos");
+        specialties.add(specialtyA);
+        specialtyRepository.saveAll(specialties);
+
         List<User> users = new ArrayList<>();
-        User userA = new User(1,"thodoris","karolidis","c");
-        users.add(userA);
+        User userB = new User(2,"name2","password2","c");
+        users.add(userB);
         userRepository.saveAll(users);
-
-
 
     }
 
