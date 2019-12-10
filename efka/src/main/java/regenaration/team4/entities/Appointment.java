@@ -52,14 +52,14 @@ public class Appointment implements Serializable {
     }
     public void setAppointment_comments(String appointment_comments) {this.appointment_comments = appointment_comments;}
 
-//    @ManyToOne
-//    @JoinColumn(name = "amka")
-//    public Citizen getCitizen(){return citizen;}
-//    public void setCitizen(Citizen citizen){this.citizen = citizen;}
-//
-//    @ManyToOne
-//    @JoinColumn(name = "doctor_id")
-//    public Doctor getDoctor(){return doctor;}
-//    public void setDoctor(Doctor doctor){this.doctor = doctor;}
+    @ManyToOne
+    @JoinColumn(name = "amka")
+    public Citizen getCitizen(){return citizen;}
+    public void setCitizen(Citizen citizen){this.citizen = citizen;}
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    public Doctor getDoctor(){return doctor;}
+    public void setDoctor(Doctor doctor){this.doctor = doctor;}
 
 }

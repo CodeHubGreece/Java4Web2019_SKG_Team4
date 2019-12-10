@@ -35,8 +35,8 @@ public class Specialty implements Serializable {
         this.specialty_name = specialty_name;
     }
 
-    @OneToMany(mappedBy = "specialties", cascade = CascadeType.ALL)
-    @JoinColumn(name = "doctor_id")
+    @OneToMany(mappedBy = "specialty", cascade = CascadeType.ALL)
+    //@JoinColumn(name = "doctor_id")
     public Set<Doctor> getDoctors(){return doctors;}
     public void setDoctors(Set<Doctor> doctors){this.doctors = doctors;}
 

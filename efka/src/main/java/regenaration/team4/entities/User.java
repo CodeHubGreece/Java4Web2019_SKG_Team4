@@ -16,7 +16,8 @@ public class User implements Serializable {
 
     public  User(){}
 
-    public User(String username,String user_password,String user_type){
+    public User(Integer user_id,String username,String user_password,String user_type){
+        this.user_id = user_id;
         this.username = username;
         this.user_password = user_password;
         this.user_type = user_type;
@@ -57,11 +58,11 @@ public class User implements Serializable {
         this.user_type = user_type;
     }
 
-    @OneToOne(mappedBy = "citizens")
+    @OneToOne(mappedBy = "user")
     public Citizen getCitizen(){return citizen;}
     public void setCitizen(Citizen citizen){this.citizen = citizen;}
 
-    @OneToOne(mappedBy = "doctors")
+    @OneToOne(mappedBy = "user")
     public Doctor getDoctor(){return doctor;}
     public void setDoctor(Doctor doctor){this.doctor = doctor;}
 

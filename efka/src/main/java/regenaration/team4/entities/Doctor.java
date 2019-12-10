@@ -64,13 +64,13 @@ public class Doctor implements Serializable {
     public User getUser(){return user;}
     public void setUser(User user){this.user = user;}
 
-    @OneToMany(mappedBy = "doctors", cascade = CascadeType.ALL)
-    @JoinColumn(name = "doctor_id")
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
+    //@JoinColumn(name = "doctor_id")
     public Set<Appointment> getAppointments(){return appointments;}
     public void setAppointments(Set<Appointment> appointments){this.appointments = appointments;}
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
+    @ManyToOne()
+    @JoinColumn(name = "doctor_id", insertable = false,updatable = false)
     public Specialty getSpecialty(){return specialty;}
     public void setSpecialty(Specialty specialty){this.specialty = specialty;}
 }

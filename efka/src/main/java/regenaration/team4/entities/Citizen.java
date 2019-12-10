@@ -68,8 +68,8 @@ public class Citizen implements Serializable {
     public User getUser(){return user;}
     public void setUser(User user){this.user = user;}
 
-    @OneToMany(mappedBy = "citizens", cascade = CascadeType.ALL)
-    @JoinColumn(name = "amka")
+    @OneToMany(mappedBy = "citizen", cascade = CascadeType.ALL)
+    //@JoinColumn(name = "amka")
     public Set<Appointment> getAppointments(){return appointments;}
     public void setAppointments(Set<Appointment> appointments){this.appointments = appointments;}
 

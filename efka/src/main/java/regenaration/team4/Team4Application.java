@@ -26,10 +26,8 @@ public class Team4Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception{
 
-
-
         List<User> users = new ArrayList<>();
-        User userA = new User("thodoris","karolidis","c");
+        User userA = new User(1,"thodoris","karolidis","c");
         users.add(userA);
         userRepository.saveAll(users);
 
