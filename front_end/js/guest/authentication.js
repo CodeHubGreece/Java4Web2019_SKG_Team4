@@ -41,6 +41,8 @@ function logOut(){
 }
 
 function register(firstnameElement,lastnameElement,amkaElement,emailElement,usernameElement,passwordElement,phoneElement) {
+    
+    
     let firstname = firstnameElement && firstnameElement.value ? firstnameElement.value : "";
     let lastname = lastnameElement && lastnameElement.value ? lastnameElement.value : "";
     let amka = amkaElement && amkaElement.value ? amkaElement.value : "";
@@ -49,7 +51,7 @@ function register(firstnameElement,lastnameElement,amkaElement,emailElement,user
     let password = passwordElement && passwordElement.value ? passwordElement.value : "";
     let phone = phoneElement && phoneElement.value ? phoneElement.value : "";
 
-
+    if (username.length>3  && password.length>3  ){
     const ROOT_PATH = "http://localhost:8080";
     var fd = new FormData();
     fd.append( 'firstname', firstname);
@@ -77,4 +79,5 @@ function register(firstnameElement,lastnameElement,amkaElement,emailElement,user
         }
     });
 
+}
 }
