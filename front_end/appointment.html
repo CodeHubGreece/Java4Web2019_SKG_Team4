@@ -22,10 +22,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style type="text/css">
-        .bs-example{
+        .bs-example {
             margin: 20px;
         }
-        body{
+
+        body {
             padding-top: 70px;
         }
     </style>
@@ -36,13 +37,12 @@
 
     <div class="bs-example">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-img" href="Login.html"> <img
-                src="img\efkalogo.png" alt="efka"
-                class="center" height:40% >  </a>
+            <a class="navbar-img" href="Login.html"> <img src="img\efkalogo.png" alt="efka" class="center" height:40%>
+            </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
-    
+
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
                     <a href="Profile.html" class="nav-item nav-link">Profile</a>
@@ -50,7 +50,7 @@
                     <a href="appointment.html" class="nav-item nav-link">Create</a>
                     <a href="Search.html" class="nav-item nav-link">Search</a>
                     <a href="Edit.html" class="nav-item nav-link">Edit</a>
-                    
+
                 </div>
                 <div class="navbar-nav ml-auto">
                     <a href="Login.html" class="nav-item nav-link" onclick="logOut()">Log Out</a>
@@ -58,50 +58,41 @@
             </div>
         </nav>
 
-    ​ <form>
-        <h3 class="center"> Sector:</h3>
-        <select class="center">
-            <option value="Allergiology">Allergiology</option>
-            <option value="Dermatology">Dermatology</option>
-            <option value="Neurology">Neurology</option>
-            <option value="Urology">Urology</option>
-        </select> <br>
-        <h3 class="center"> Doctor:</h3>
-        <select class="center">
-            <option value="D1">D1</option>
-            <option value="D2">D2</option>
-            <option value="D3">D3</option>
-            <option value="D4">D4</option>
-        </select> <br>
+        ​ <form>
+            <h3 class="center"> Sector:</h3>
+            <select class="center">
+                <option value="Allergiology">Allergiology</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Urology">Urology</option>
+            </select> <br>
+            <h3 class="center"> Doctor:</h3>
+            <select class="center">
+                <option value="D1">D1</option>
+                <option value="D2">D2</option>
+                <option value="D3">D3</option>
+                <option value="D4">D4</option>
+            </select> <br>
 
-        <h3 class="center">Date and time:</h3>
+            <h3 class="center">Date and time:</h3>
 
-        <input class="center" type="datetime-local" id="meeting-time" name="meeting-time" value="mm-dd-12T19:30"
-            min="1920-06-07T00:00" max="2030-06-14T00:00"> <br>
+            <input class="center" type="datetime-local" id="meeting-time" name="meeting-time" value="mm-dd-12T19:30"
+                min="1920-06-07T00:00" max="2030-06-14T00:00"> <br>
 
-        <h3 class="center"> Short explanation:</h3>
+            <h3 class="center"> Short explanation:</h3>
 
-        <textarea class="center" placeholder="Tell us a few things about your issue."></textarea> <br>
+            <textarea class="center" placeholder="Tell us a few things about your issue."></textarea> <br>
 
-        <button class="loginbutton" type="submit" onclick="alert('hello world!')"> Submit </button> <br>
+            <button class="loginbutton" type="submit" onclick="alert('hello world!')"> Submit </button> <br> <br> <br>
 
 
-    </form>
-    ​
+        </form>
+        ​
 </body>
-<footer>
-
-    <div class="footer">
-        <div class="nav">
-            <ul>
-                <li><a href="Login.html">HOME</a></li>
-                <p>EFKA COPYRIGHT © 2019. ALL RIGHTS RESERVED - DESIGNED BY Team4 </p>
-
-            </ul>
-        </div>
-    </div>
-
-</footer>
 ​
+<footer>
+    <br>
+    <h6> EFKA COPYRIGHT © 2019. ALL RIGHTS RESERVED - DESIGNED BY Team4</h6>
+</footer>
 
 </html>
