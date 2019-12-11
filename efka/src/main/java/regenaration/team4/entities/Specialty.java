@@ -14,11 +14,6 @@ public class Specialty implements Serializable {
 
     public Specialty(){}
 
-    public Specialty(Integer specialty_id,String specialty_name){
-        this.specialty_id = specialty_id;
-        this.specialty_name = specialty_name;
-    }
-
     @Id
     @Column
     public Integer getSpecialty_id() {
@@ -37,7 +32,6 @@ public class Specialty implements Serializable {
     }
 
     @OneToMany(mappedBy = "specialty", cascade = CascadeType.ALL)
-    //@JoinColumn(name = "doctor_id")
     public Set<Doctor> getDoctors(){return doctors;}
     public void setDoctors(Set<Doctor> doctors){this.doctors = doctors;}
 

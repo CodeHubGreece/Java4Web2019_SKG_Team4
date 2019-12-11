@@ -71,7 +71,7 @@ public class Doctor implements Serializable {
     public void setAppointments(Set<Appointment> appointments){this.appointments = appointments;}
 
     @ManyToOne()
-    @JoinColumn(name = "doctor_id", insertable = false,updatable = false)
+    @JoinColumn(name = "specialty_id", insertable = false,updatable = false)
     public Specialty getSpecialty(){return specialty;}
     public void setSpecialty(Specialty specialty){this.specialty = specialty;}
 }

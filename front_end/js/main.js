@@ -5,12 +5,12 @@ function logIn() {
     if(user == "user" && pass == "user") {
         localStorage.setItem("isLoggedIn", true);
         alert("Logged In");
-        window.location.replace("Profil.html");
+        window.location.replace("Profile.html");
     } 
     else alert("wrong user/pass");
 }
 
 function logOut(){
     localStorage.removeItem("isLoggedIn");
-    window.location.replace("project.html");
+    window.location.replace("Login.html");
 }
