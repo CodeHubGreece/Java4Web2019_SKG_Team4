@@ -26,14 +26,17 @@ public class Team4Application implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
+        /*
         List<User> users = new ArrayList<>();
         List<Citizen> citizens = new ArrayList<>();
         User userA = new User("userA", "passA", "C");
-        users.add(userA);userRepository.saveAll(users);
+        users.add(userA);
+        userRepository.saveAll(users);
         Citizen citizen = new Citizen("01234567890","citizenAname","citizenAsurname","citizenAemail","xxxxxxxxxA");
         citizen.setUser(userA);
         citizens.add(citizen);
         citizenRepository.saveAll(citizens);
+        */
 
     }
 
