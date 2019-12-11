@@ -6,8 +6,19 @@
     <title>
         Register page
     </title>
+    
+
     <link rel="stylesheet" type="text/css" href="css\project.css">
     <link rel="stylesheet" type="text/css" href="css\footer.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+    <script src="js\config\main.js"></script>
+    <script src="js\guest\authentication.js"></script>
+
 </head>
 
 <body>
@@ -19,20 +30,21 @@
             Member Register
         </span>
 
-        <input type="text" id="firstname" placeholder="Type your First Name" class="center">
+        <input neme="firstname" type="text" id="firstname" placeholder="Type your First Name" class="center">
         <br>
-        <input type="text" id="lastname" placeholder="Type your Last Name" class="center">
+        <input name="lastname" type="text" id="lastname" placeholder="Type your Last Name" class="center">
         <br>
-        <input type="text" id="amka" placeholder="Type your AMKA" class="center">
+        <input name="amka" type="text" id="amka" placeholder="Type your AMKA" class="center">
         <br>
-        <input type="email" id="email" size="35" placeholder="Type your Email" class="center">
+        <input name="email" type="email" id="email" size="35" placeholder="Type your Email" class="center">
         <br>
-        <input type="text" id="username" placeholder="Type your Username" class="center">
+        <input name="username" type="text" id="username" placeholder="Type your Username" class="center">
         <br>
-        <input type="password" id="password" maxlength="4" placeholder="Type your Password" class="center">
+        <input name="password" type="password" id="password"  placeholder="Type your Password" class="center">
         <br>
-        <input type="\d*" id="phone" placeholder="Type your Phone Number" class="center">
-        <br> <button class="loginbutton" type="submit" onclick="alert('hello world!')">Register </button> <br> <br><br>
+        <input name="phone" type="\d*" id="phone" placeholder="Type your Phone Number" class="center">
+        
+        <br> <button class="loginbutton" type="submit" onclick="register(firstname,lastname,amka,email,username,password,phone)">Register </button> <br> <br><br>
         <br> <br> <br>
 
     </form>
