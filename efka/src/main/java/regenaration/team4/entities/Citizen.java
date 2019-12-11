@@ -13,19 +13,17 @@ public class Citizen implements Serializable {
     private String citizen_surname;
     private String citizen_email;
     private String citizen_phone;
-    private Integer user_id;
     private User user;
     private Set<Appointment> appointments;
 
     public Citizen(){}
 
-    public Citizen(String amka,String citizen_name,String citizen_surname,String citizen_email,String citizen_phone,Integer user_id){
+    public Citizen(String amka,String citizen_name,String citizen_surname,String citizen_email,String citizen_phone){
         this.amka = amka;
         this.citizen_name = citizen_name;
         this.citizen_surname = citizen_surname;
         this.citizen_email = citizen_email;
         this.citizen_phone = citizen_phone;
-        this.user_id = user_id;
     }
 
     @Id
