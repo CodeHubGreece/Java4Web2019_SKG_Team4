@@ -4,10 +4,16 @@ function logIn() {
     let pass = document.getElementById("password").value;
     if(user == "user" && pass == "user") {
         localStorage.setItem("isLoggedIn", true);
-        alert("Logged In");
+        alert("Logged in successfully.");
         window.location.replace("Profile.html");
     } 
-    else alert("wrong user/pass");
+else if (user == "doct" && pass == "doct") {
+    localStorage.setItem("isLoggedIn", true);
+    alert("Logged in successfully.");
+    window.location.replace("doctor-profile.html");
+} 
+
+    else alert("Couldn't authenticate, try again.");
 }
 
 function logOut(){

@@ -1,43 +1,17 @@
-
-*{
-	margin: 0px;	
-	box-sizing: border-box;
+footer {
+    background-color: darkslategray;
+	position: absolute;
+    left: 0;
+    bottom: 0;
+	color:ghostwhite;
+    height: 80px;
+    width: 100%;
+    overflow: hidden;
+	text-align: center;
+	font-family: "Copperplate Gothic Light", Courier, monospace;
 }
 
-.footer{
-	margin: auto;
-	background: darkslategray;
-    padding: 30px 5px;
-    margin-bottom: -18px;
-}
-
-.noclick{
-pointer-events: none;
-}
-
-.nav{
-	margin-top: 48px;
-}
-
-
-.nav ul li{
-	display: inline-block;
-	margin: 10px 20px;	 
-}
-.nav ul li a{
-	text-decoration: none;
-	font-family: 'Roboto Slab', serif;
-	font-size: 20px;
-	color: #fff;
-	font-weight: bold;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-}
-
-footer{
-	background: #000000;
-    color: #ffffff;
-    position: bottom;
-    text-align: center;
-    z-index: 1;
+html {
+    position: relative;
+    min-height: 100%;
 }
