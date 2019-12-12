@@ -51,7 +51,7 @@ function register(firstnameElement,lastnameElement,amkaElement,emailElement,user
     let password = passwordElement && passwordElement.value ? passwordElement.value : "";
     let phone = phoneElement && phoneElement.value ? phoneElement.value : "";
 
-    if (username.length>3  && password.length>3  ){
+    if (username.length>5  && password.length>5 && firstname.length>5 && lastname.length>5 && amka.length>10 && phone.length>9){
     const ROOT_PATH = "http://localhost:8080";
     var fd = new FormData();
     fd.append( 'firstname', firstname);
@@ -79,5 +79,8 @@ function register(firstnameElement,lastnameElement,amkaElement,emailElement,user
         }
     });
 
+}
+else {
+  alert("Wrong");
 }
 }
