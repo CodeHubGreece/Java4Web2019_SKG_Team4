@@ -19,7 +19,7 @@ function login(usernameElement, passwordElement) {
           type: 'POST',
           success: function(data){
             sessionStorage.setItem(SESSION_STORAGE_LOGIN_TOKEN_NAME, username);
-            window.location.replace(ROOT_PATH + "/pages/user/Login.html");
+            window.location.replace(ROOT_PATH + "/Login.html");
           },
           statusCode: {
             401 : function() {
@@ -40,27 +40,27 @@ function logOut(){
     window.location.replace("Login.html");
 }
 
-function register(firstnameElement,lastnameElement,amkaElement,emailElement,usernameElement,passwordElement,phoneElement) {
+function register(citizen_nameElement,citizen_lastnameElement,amkaElement,citizen_emailElement,usernameElement,citizen_passwordElement,citizen_phoneElement) {
     
     
-    let firstname = firstnameElement && firstnameElement.value ? firstnameElement.value : "";
-    let lastname = lastnameElement && lastnameElement.value ? lastnameElement.value : "";
+    let citizen_name = citizen_nameElement && citizen_nameElement.value ? citizen_nameElement.value : "";
+    let citizen_lastname = citizen_lastnameElement && citizen_lastnameElement.value ? citizen_lastnameElement.value : "";
     let amka = amkaElement && amkaElement.value ? amkaElement.value : "";
-    let email = emailElement && emailElement.value ? emailElement.value : "";
+    let citizen_email = citizen_emailElement && citizen_emailElement.value ? citizen_emailElement.value : "";
     let username = usernameElement && usernameElement.value ? usernameElement.value : "";
-    let password = passwordElement && passwordElement.value ? passwordElement.value : "";
-    let phone = phoneElement && phoneElement.value ? phoneElement.value : "";
+    let citizen_password = citizen_passwordElement && citizen_passwordElement.value ? citizen_passwordElement.value : "";
+    let citizen_phone = citizen_phoneElement && citizen_phoneElement.value ? citizen_phoneElement.value : "";
 
-    if (username.length>5  && password.length>5 && firstname.length>5 && lastname.length>5 && amka.length>10 && phone.length>9){
+    if (username.length>5  && citizen_password.length>5 && citizen_name.length>5 && citizen_lastname.length>5 && amka.length>10 && citizen_phone.length>9){
     const ROOT_PATH = "http://localhost:8080";
     var fd = new FormData();
-    fd.append( 'firstname', firstname);
-    fd.append( 'lastname', lastname);
+    fd.append( 'citizen_name', citizen_name);
+    fd.append( 'citizen_lastname', citizen_lastname);
     fd.append( 'amka', amka);
-    fd.append( 'email', email);
+    fd.append( 'citizen_email', citizen_email);
     fd.append( 'username', username);
-    fd.append( 'password', password);
-    fd.append( 'phone', phone);
+    fd.append( 'citizen_password', citizen_password);
+    fd.append( 'citizen_phone', citizen_phone);
     
     $.ajax({
       url: ROOT_PATH + '/api/register',
@@ -70,7 +70,7 @@ function register(firstnameElement,lastnameElement,amkaElement,emailElement,user
       type: 'POST',
       success: function(data){
         sessionStorage.setItem(SESSION_STORAGE_LOGIN_TOKEN_NAME, username);
-        window.location.replace(ROOT_PATH + "/pages/user/register.html");
+        window.location.replace(ROOT_PATH + "/register.html");
       },
       statusCode: {
         401 : function() {
