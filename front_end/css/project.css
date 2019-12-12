@@ -20,6 +20,17 @@ input{
 	padding-bottom: 40px;
   }
 
+  .title-custom {
+	font-family: Poppins-Bold;
+	font-size: 26px;
+	color: #333333;
+	line-height: 1.2;
+	text-align: center;
+	width: 100%;
+	display: block;
+	padding-bottom: 10x;
+  }
+
 textarea {
 	outline: none;
 	border: none;
@@ -53,7 +64,17 @@ textarea {
 	margin-right: auto;
 	width: 15;  
 }
-
+   .reg1{
+	display: block;
+	outline: none;
+    margin-left: auto;
+    margin-right: auto;
+	width: 30%;
+	border-radius: 25px;
+	padding: 14px 30px;
+	border: none;
+	background: rgba(255,255,255,0.4);
+   }
 
   .center {
     display: block;
