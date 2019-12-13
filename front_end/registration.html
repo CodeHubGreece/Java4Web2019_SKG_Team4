@@ -14,6 +14,7 @@
   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js\guest\authentication.js"></script>
+<script src="js\config\main.js"></script>
 
 </head>
 
@@ -32,15 +33,15 @@
         <br>
         <input name="amka" type="text" id="amka" placeholder="Type your AMKA" class="center">
         <br>
-        <input name="citizen_email" type="citizen_email" id="email" size="35" placeholder="Type your Email" class="center">
+        <input name="citizen_email" type="citizen_email" id="citizen_email" size="35" placeholder="Type your Email" class="center">
         <br>
         <input name="username" type="text" id="username" placeholder="Type your Username" class="center">
         <br>
-        <input name="citizen_password" type="password" id="password"  placeholder="Type your Password" class="center">
+        <input name="citizen_password" type="password" id="citizen_password"  placeholder="Type your Password" class="center">
         <br>
         <input name="citizen_phone" type="\d*" id="citizen_phone" placeholder="Type your Phone Number" class="center">
         
-        <br> <button class="loginbutton" type="button" onclick="register(citizen_name,citizen_lastname,amka,citizen_email,username,citizen_password,citizen_phone)">Register </button> <br> <br><br>
+        <br> <button class="loginbutton" type="button" onclick="register()">Register </button> <br> <br><br>
         <br> <br> <br>
 
     </form>
