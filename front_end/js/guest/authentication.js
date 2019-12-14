@@ -72,3 +72,43 @@ function register() {
               });
 }
 
+function appointmentpost() {
+    
+  let Dermatology = document.getElementById('Dermatology').value;
+  //let Allergiology = document.getElementById('Alleriology').value;
+  let Neurology = document.getElementById('Neurology').value;
+  let Urology = document.getElementById('Urology').value;
+  let D1 = document.getElementById('D1').value;
+  let D2 = document.getElementById('D2').value;
+  let D3 = document.getElementById('D3').value;
+  let D4 = document.getElementById('D4').value;
+  let date_time = document.getElementById('date_time').value;
+             $.ajax({
+                      url:'http://localhost:8080//appointment',
+                      type: 'POST',
+                       dataType: 'json',
+                       data: JSON.stringify({
+                        Allergiology:Allergiology,
+                        Dermatology:Dermatology,
+                        Neurology:Neurology,
+                        Urology:Urology,
+                        D1:D1,
+                        D2:D2,
+                        D3:D3,
+                        D4:D4,
+                        date_time:date_time
+                  }),
+                  contentType: 'application/json',
+                  success: function (result) {
+                      alert("Data Saved: " + JSON.stringify(result));
+                  },
+                  error: function (xhr, resp, text) {
+                      alert("NOT Saved: " + text);
+                  }
+              });
+}
+
+
+
+
+

@@ -20,6 +20,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js\guest\authentication.js"></script>
     <style type="text/css">
         .bs-example {
             margin: 20px;
@@ -57,29 +58,29 @@
         ​ <form>
             <h3 class="title-custom"> Sector</h3>
             <select class="reg1">
-                <option value="Allergiology">Allergiology</option>
-                <option value="Dermatology">Dermatology</option>
-                <option value="Neurology">Neurology</option>
-                <option value="Urology">Urology</option>
+                <option name="Allergiology" id="Allergiology" value="Allergiology">Allergiology</option>
+                <option name="Dermatology" id="Dermatology" value="Dermatology">Dermatology</option>
+                <option name="Neurology" id="Neurology" value="Neurology">Neurology</option>
+                <option name="Urology" id="Urology" value="Urology">Urology</option>
             </select> <br>
             <h3 class="title-custom"> Doctor</h3>
             <select class="reg1">
-                <option value="D1">D1</option>
-                <option value="D2">D2</option>
-                <option value="D3">D3</option>
-                <option value="D4">D4</option>
+                <option name="D1" id="D1" value="D1">D1</option>
+                <option name="D2" id="D2" value="D2">D2</option>
+                <option name="D3" id="D3" value="D3">D3</option>
+                <option name="D4" id="D4" value="D4">D4</option>
             </select> <br>
 
             <h3 class="title-custom">Date and time</h3>
 
-            <input class="center" type="datetime-local" id="meeting-time" name="meeting-time" value="mm-dd-12T19:30"
+            <input class="center" type="datetime-local" id="date_time" name="data_time" value="mm-dd-12T19:30"
                 min="1920-06-07T00:00" max="2030-06-14T00:00"> <br>
 
             <h3 class="title-custom"> Short explanation</h3>
 
             <textarea class="center" placeholder="Tell us a few things about your issue."></textarea> <br>
 
-            <button class="loginbutton" type="button" onclick="alert('hello world!')"> Submit </button> <br> <br> <br>
+            <button class="loginbutton" type="button" onclick="appointmentpost()"> Submit </button> <br> <br> <br>
 
 
         </form>
