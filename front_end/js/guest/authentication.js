@@ -56,7 +56,7 @@ function register() {
                        data: JSON.stringify({
                        username:username,
                        citizen_password:citizen_password,
-                       citizen_firstname:citizen_lastname,
+                       citizen_lastname:citizen_lastname,
                        citizen_name:citizen_name,
                        citizen_phone:citizen_phone,
                        citizen_email:citizen_email,
