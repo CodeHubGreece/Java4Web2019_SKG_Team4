@@ -109,6 +109,20 @@ function appointmentpost() {
 }
 
 
+function profileget(){
+  
 
-
+    $.ajax({
+        url: "http://localhost:8080/api/profile",
+        type: "GET",
+        dataType: 'json',
+        contentType: 'application/json',
+        success: function (data){
+                      
+        console.log(data);               
+        },
+        error: function (xhr, resp, text) {
+        }
+    });
+}
 
