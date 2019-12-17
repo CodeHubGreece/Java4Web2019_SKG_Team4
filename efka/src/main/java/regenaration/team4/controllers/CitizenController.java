@@ -1,53 +1,47 @@
-package regenaration.team4.controllers;
+package org.regeneration.project.controllers;
 
+import org.regeneration.project.models.Citizen;
+import org.regeneration.project.models.User;
+import org.regeneration.project.services.CitizenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import regenaration.team4.entities.Appointment;
-import regenaration.team4.service.CitizenService;
 
+import java.util.List;
+import java.util.Optional;
 
 @RestController
+@RequestMapping("/citizen")
 public class CitizenController {
 
-    @Autowired
-    CitizenService citizenService;
+    private CitizenService citizenService;
 
+    public CitizenController(@Autowired CitizenService citizenService){
+        this.citizenService = citizenService;
+    }
 
-    /*ζητάμε απο το api να μας στείλει ένα ραντεβού*/
     @GetMapping("")
-    public Appointment getAppointmentById(@PathVariable Integer id) {
-        return citizenService.getAppointment_id(id);
+    public List<Citizen> getCitizen(){
+        return  citizenService.getAllCitizens();
     }
-    /*
-    @GetMapping("/books/{id}")
-    public Book getBookById(@PathVariable Long id) {
-        return bookService.getById(id);
+
+    //Single Item
+    @GetMapping("/{id}")
+    public Optional<Citizen> getOneCitizen(@PathVariable Long id){
+        return citizenService.getOneCitizen(id);
     }
-*/
-    /*ζηταμε απο το api να μας δημιουργήσει ραντεβού*/
+
     @PostMapping("")
-    public Appointment createCitizenAppointment() {
-        return citizenService.newCitizenAppointment();
+    public Citizen getNewCitizen(@RequestBody Citizen newCitizen){
+        return citizenService.postNewCitizen(newCitizen);
     }
 
-    /*
-    @PostMapping("/books")
-    public Book newBook(@RequestBody Book book) {
-        return bookService.newBook(book);
-    }
-    */
+//    @PutMapping("/{id}")
+//    public User updateUser(@RequestBody User newUser, @PathVariable Long id){
+//        return userService.updateUser(newUser, id);
+//    }
 
-
-    /*
-    public BookController(@Autowired BookService bookService) {
-        this.bookService = bookService;
+    @DeleteMapping("/{id}")
+    public void deleteCitizen(@PathVariable Long id){
+        citizenService.deleteCitizen(id);
     }
-    */
-
-   /* @GetMapping("/books")
-    public List<Book> getBooks(@RequestParam(value = "title", required = true) String title) {
-        Book book = new Book(1l, "1234", title);
-        return Arrays.asList(book);
-    }
-    */
 }

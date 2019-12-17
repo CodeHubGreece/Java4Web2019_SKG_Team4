@@ -19,6 +19,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="js\guest\authentication.js"></script>
+
   <style type="text/css">
     .bs-example {
       margin: 20px;
@@ -42,7 +44,7 @@
 
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav">
-            <a href="Profile.html" class="nav-item nav-link">Profile</a>
+            <a href="Profile.html" class="nav-item nav-link" onclick="profileget()">Profile</a>
             <a href="appointment.html" class="nav-item nav-link">Create an Appointment</a>
             <a href="Search.html" class="nav-item nav-link">Search</a>
         </div>
@@ -52,8 +54,10 @@
       </div>
     </nav>
 
-    <h1>Hello, I'm a happy citizen</h1>
+    <h1>Hello, Citizen</h1>
 
+    <p id="profileget()" ></p>
+    <button type="button" class="loginbutton" onclick="profileget()">Profile</button>
 </body>
 
 <footer>
