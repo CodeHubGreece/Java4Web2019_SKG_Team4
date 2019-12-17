@@ -65,6 +65,7 @@ function register() {
                   contentType: 'application/json',
                   success: function (result) {
                       alert("Data Saved: " + JSON.stringify(result));
+                      
                   },
                   error: function (xhr, resp, text) {
                       alert("NOT Saved: " + text);

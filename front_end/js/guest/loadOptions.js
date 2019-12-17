@@ -69,8 +69,8 @@ function create_appointment(specialityElem, doctornameElem, dateElem, descriptio
         success: function (result) {
             alert("Data Saved: " + JSON.stringify(result));
         },
-        error: function () {
-
+        error: function (e) {
+alert(e)
         }
     })
 
