@@ -1,0 +1,17 @@
+footer {
+    background-color: darkslategray;
+	position: absolute;
+    left: 0;
+    bottom: 0;
+	color:ghostwhite;
+    height: 80px;
+    width: 100%;
+    overflow: hidden;
+	text-align: center;
+	font-family: "Copperplate Gothic Light", Courier, monospace;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}

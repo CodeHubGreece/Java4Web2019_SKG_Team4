@@ -1,0 +1,36 @@
+ .navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkslategray;
+  }
+  
+  .licl {
+    float: left;
+  }
+  
+  .licl a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .licl a:hover:not(.active) {
+    background-color: #111;
+  }
+  
+  .active {
+    background-color: seagreen;
+  }
+
+  .navimg {
+    float: left;
+    width: 30%;
+  }
+
+.navbar-img{
+  width: 25%;
+}
