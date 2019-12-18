@@ -6,6 +6,7 @@ public class AppointmentDTO {
 
 
     private Integer doctorId;
+    private Long appointment_id;
     private Date appointment_date;
     private String specialtyName;
     private String appointment_comments;
@@ -57,5 +58,13 @@ public class AppointmentDTO {
 
     public void setAppointment_description(String appointment_description) {
         this.appointment_description = appointment_description;
+    }
+
+    public Long getAppointment_id() {
+        return appointment_id;
+    }
+
+    public void setAppointment_id(Long appointment_id) {
+        this.appointment_id = appointment_id;
     }
 }

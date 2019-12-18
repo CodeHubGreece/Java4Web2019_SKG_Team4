@@ -5,6 +5,6 @@ import regenaration.team4.entities.Specialty;
 
 import java.util.List;
 
-public interface SpecialtyRepository extends JpaRepository<Specialty,Integer> {
+public interface SpecialtyRepository extends JpaRepository<Specialty,Long> {
     List<Specialty> findAll();
 }
