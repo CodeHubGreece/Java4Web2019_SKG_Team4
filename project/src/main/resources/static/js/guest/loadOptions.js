@@ -56,32 +56,33 @@ function loadDoctors(selectedSpecialtyIndex,data) {
 // load specialities
 function create_appointment(specialityElem, doctornameElem, dateElem, descriptionElem, moreinfoElem) {
 
-    let specialityName = specialityElem && $("#specialties").val() ? $("#specialties").val() : "";
-    let doctorId = doctornameElem && $("#doctors").val() ? $("#doctors").val() : "";
-    let appointment_date = dateElem && $("#date").val() ? $("#date").val() : "";
-    let appointment_description = descriptionElem && $("#description").val() ? $("#description").val() : "";
-    let appointment_comments = moreinfoElem && $("#more_comments").val() ? $("#more_comments").val() : "";
+    let specialityName = specialityElem && specialityElem.value ? specialityElem.value : "";
+    let doctorId = doctornameElem && doctornameElem.value ? doctornameElem.value : "";
+    let appointment_date = dateElem && dateElem.value ?  dateElem.value : "";
+    let appointment_description = descriptionElem &&descriptionElem.value ? descriptionElem.value : "";
+    let appointment_comments = moreinfoElem && moreinfoElem.value ? moreinfoElem.value : "";
 
-    //keep this element id  [..]
-    $.ajax({
-        url: ROOT_PATH+ "/api/citizen/appointment",
-        type: "POST",
-        dataType: 'json',
-        data: JSON.stringify({
-            'specialityName': specialityName,
-            'doctorId': doctorId,
-            'appointment_date': appointment_date,
-            'appointment_description': appointment_description,
-            'appointment_comments': appointment_comments
-        }),
-        contentType: 'application/json',
-        success: function (result) {
-            alert("Data Saved: " + JSON.stringify(result));
-        },
-        error: function (e) {
-alert(e)
-        }
-    })
+    if(specialityElem && doctornameElem && dateElem && descriptionElem && moreinfoElem) {
+        //keep this element id  [..]
+        $.ajax({
+            url: ROOT_PATH + "/api/citizen/appointment",
+            type: "POST",
+            dataType: 'json',
+            data: JSON.stringify({
+                'specialityName': specialityName,
+                'doctorId': doctorId,
+                'appointment_date': appointment_date,
+                'appointment_description': appointment_description,
+                'appointment_comments': appointment_comments
+            }),
+            contentType: 'application/json',
+            success: function (result) {
+                alert("Data Saved: " + JSON.stringify(result));
+            },
+            error: function (e) {
+                alert(e)
+            }
+        })
 
-
+    }
 }
