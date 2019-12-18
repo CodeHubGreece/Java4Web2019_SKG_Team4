@@ -29,8 +29,8 @@ public class CitizenController {
     }
 
     //ζηταω να μου έρθει ο γιατρός που διάλεξα
-    @GetMapping("/getDoctorsWithSpecialty/{specialtyId}")
-    public List<Doctor> getDoctorsBySpecialtyId(@PathVariable Long specialtyId) {
+    @GetMapping("/getspecialities/{specialtyId}")
+    public List<Doctor> getDoctorsBySpecialtyId(@PathVariable Integer specialtyId) {
         return citizenService.getDoctors(specialtyId);
     }
     //για να διαγραψω απο την βαση (αφου βγάλω ένα Id μετα αλλάζουν όλα?)

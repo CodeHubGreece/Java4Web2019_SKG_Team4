@@ -53,7 +53,7 @@ public class CitizenService {
     }
 
     @PreAuthorize("hasRole('ROLE_CITIZEN')")
-    public List<Doctor> getDoctors(@PathVariable Long specialityId) {
+    public List<Doctor> getDoctors(@PathVariable Integer specialityId) {
         //κανω μια λιστα με γιατρους
         List<Doctor> doctors = new ArrayList<Doctor>();
         // To Optional αντικειμενο περιέχει μη μηδενικά αντικείμενα.

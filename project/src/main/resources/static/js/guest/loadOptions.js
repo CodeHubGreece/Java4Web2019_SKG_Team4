@@ -8,14 +8,23 @@ $.ajax({
     success: function (data) {
         console.log(data);
         for (let specialtyIndex in data) {
-            $("#specialties").append("<option value='" + specialtyIndex + "'>" + data[specialtyIndex].specialty_name + "</option>")
-        }
-        if (data && data.length > 0) {
-            loadDoctors(0,data);
+            $("#specialties").append("<option value='" + data[specialtyIndex].specialty_id + "'>" + data[specialtyIndex].specialty_name + "</option>")
         }
         $("#specialties").change(function () {
-            const selectedSpecialtyIndex = this.value;
-            loadDoctors(selectedSpecialtyIndex,data);
+            const specialityElement=document.querySelector("#specialties");
+            const specialityId= specialityElement.value;
+            $.ajax({
+                url: ROOT_PATH + "/getspecialities/" + specialityId,
+                type: "GET",
+                dataType : "json",
+                contentType:"application/json",
+                success: function (data) {
+                    console.log(data);
+                    for (let doctorIndex in data) {
+                        $("#doctors").append("<option value='" + doctorIndex + "'>" + data[doctorIndex].doctor_name + "</option>")
+                    }
+                },
+            });
         })
     },
     error: function (xhr, resp, text) {
@@ -30,11 +39,11 @@ function loadDoctors(selectedSpecialtyIndex,data) {
         for (let doctor of doctors) {
             let doctorName = "";
             if (doctor.user) {
-                if (doctor.user.firstname) {
-                    doctorName += doctor.user.firstname + " ";
+                if (doctor.user.doctor_name) {
+                    doctorName += doctor.user.doctor_name + " ";
                 }
-                if (doctor.user.lastname) {
-                    doctorName += doctor.user.lastname;
+                if (doctor.user.doctor_surname) {
+                    doctorName += doctor.user.doctor_surname+ " ";
                 }
             }
             if (doctorName) {
