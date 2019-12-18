@@ -1,5 +1,7 @@
 package regenaration.team4.entities;
 
+        import com.fasterxml.jackson.annotation.JsonIgnore;
+
         import javax.persistence.*;
         import java.io.Serializable;
         import java.util.Date;
@@ -55,11 +57,13 @@ public class Appointment implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "amka")
+    @JsonIgnore
     public Citizen getCitizen(){return citizen;}
     public void setCitizen(Citizen citizen){this.citizen = citizen;}
 
     @ManyToOne
     @JoinColumn(name = "doctor_id")
+    @JsonIgnore
     public Doctor getDoctor(){return doctor;}
     public void setDoctor(Doctor doctor){this.doctor = doctor;}
 

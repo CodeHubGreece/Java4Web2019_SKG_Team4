@@ -19,9 +19,9 @@ $.ajax({
                 dataType : "json",
                 contentType:"application/json",
                 success: function (data) {
-                    console.log(data);
+                    $("#doctors").html("");
                     for (let doctorIndex in data) {
-                        $("#doctors").append("<option value='" + doctorIndex + "'>" + data[doctorIndex].doctor_name + "</option>")
+                        $("#doctors").append("<option value='" + data[doctorIndex].doctor_id + "'>" + data[doctorIndex].doctor_name + "</option>")
                     }
                 },
             });
