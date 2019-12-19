@@ -6,6 +6,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import regenaration.team4.WebAppConfig;
 import regenaration.team4.dto.AppointmentDTO;
 import regenaration.team4.entities.*;
 import regenaration.team4.repositories.AppointmentRepository;
@@ -14,8 +16,11 @@ import regenaration.team4.repositories.SpecialtyRepository;
 import regenaration.team4.repositories.UserRepository;
 
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -97,5 +102,31 @@ public class CitizenService {
         return appointmentToEdit;
     }
 
+    @PreAuthorize("hasRole('CITIZEN')")
+    public List<Appointment> getCitAppointments(@RequestParam(value = "fromDate", defaultValue = "") String fromDate,
+                                                @RequestParam(value = "toDate", defaultValue = "") String toDate,
+                                                @RequestParam(value = "specialty", defaultValue = "") String specialty,
+                                                Principal principal) throws ParseException {
 
+        User loggedInUser = userRepository.findByUsername(principal.getName());
+        Date dateFrom=new SimpleDateFormat("dd/MM/yyyy").parse(fromDate);
+        Date dateTo = new SimpleDateFormat("dd/MM/yyyy").parse(toDate);
+        if (loggedInUser.getRole() == WebAppConfig.Role.CITIZEN) {
+            Integer citId = loggedInUser.getCitizen().getUser().getUser_id(); // εδώ θέλω να πάρω το citizen id. ??? το ίδιο 4 γραμμές κάτω.
+            List<Appointment> appointments = appointmentRepository.findAll();
+            List<Appointment> response = new ArrayList<>();
+                for (Appointment a : appointments) {
+                    if (a.getAppointment_date().compareTo(dateFrom) >= 0 && a.getAppointment_date().compareTo(dateTo) <= 0 && a.getCitizen().getUser().getUser_id() == citId) {
+                        if (a.getDoctor().getSpecialty().getSpecialty_id() == Long.parseLong(specialty)) {
+                            response.add(a);
+                        }
+                    }
+                }
+            return response;
+            }
+        return null;
     }
+
+
+
+}
