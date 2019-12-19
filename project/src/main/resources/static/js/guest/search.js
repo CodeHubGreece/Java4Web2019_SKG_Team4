@@ -1,3 +1,5 @@
+const ROOT_PATH = "http::/localhost:8080";
+
 $.ajax({
     url: ROOT_PATH + "/searchappointment",
     type: "GET",
