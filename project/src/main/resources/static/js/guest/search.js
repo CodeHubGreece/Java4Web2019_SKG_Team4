@@ -21,6 +21,23 @@ $.ajax({
 
 });
 
+function deleteAppointment(id){
+    $.ajax({
+        url: ROOT_PATH + "/deleteAppointment/"+id,
+        type: "DELETE",
+        dataType : "json",
+        contentType:"application/json",
+        success: function (data) {
+            console.log(data);
+            $("#table-body #appointmentRow"+ id).remove();
+        },
+        error: function (e) {
+            alert(e);
+        }
+    
+    });
+}
+
 function search() {
     const fromDate = document.getElementById("fromAppointmentDate").value;
     const toDate = document.getElementById("toAppointmentDate").value;
@@ -42,7 +59,7 @@ function search() {
                     console.log(appointments);
                 $("#table-body").html("");
                 jQuery.each(appointments, function (i, appointment) {
-                    $("#table-body").append("<tr id='appointmentRow" + appointment.appointment_id + "'><td>" + appointment.appointment_id + "</td><td>" + "1111" + "</td><td>" + "2222222" + "</td><td>" + appointment.appointment_date + "</td><td>" + appointment.appointment_description + "</td><td>" + appointment.appointment_comments + "</td></tr>");
+                    $("#table-body").append("<tr id='appointmentRow" + appointment.appointment_id + "'><td>" + appointment.appointment_id + "</td><td>" + "1111" + "</td><td>" + "2222222" + "</td><td>" + appointment.appointment_date + "</td><td>" + appointment.appointment_description + "</td><td>" + appointment.appointment_comments + "</td><td> <button type='button' class='btn btn-danger' onclick='deleteAppointment("+appointment.appointment_id+")'> Delete </button> </td></tr>" );
                 });
                 //$("#appointmens").append("</tbody>");
                 //  $("#body tr").click(function() {
