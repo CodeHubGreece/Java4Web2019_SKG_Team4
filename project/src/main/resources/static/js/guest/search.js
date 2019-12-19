@@ -7,7 +7,7 @@ $.ajax({
     contentType:"application/json",
 
 
-    success: function search(appointment) {
+    success: function search() {
 
     $("#appointments").append("<tbody>");
     jQuery.each(appointments, function(i,appointment) {
@@ -22,4 +22,5 @@ $.ajax({
 
 
 },
+
 });

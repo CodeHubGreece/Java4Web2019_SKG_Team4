@@ -31,6 +31,9 @@ input{
 	padding-bottom: 10x;
   }
 
+
+
+
 textarea {
 	outline: none;
 	border: none;
@@ -64,6 +67,7 @@ textarea {
 	margin-right: auto;
 	width: 15;  
 }
+
    .reg1{
 	display: block;
 	outline: none;
@@ -75,6 +79,7 @@ textarea {
 	border: none;
 	background: rgba(255,255,255,0.4);
    }
+
 
   .center {
     display: block;
