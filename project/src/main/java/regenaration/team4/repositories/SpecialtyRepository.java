@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface SpecialtyRepository extends JpaRepository<Specialty, Integer> {
     List<Specialty> findAll();
-
 }

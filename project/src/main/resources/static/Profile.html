@@ -19,7 +19,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
   <script src="js\guest\authentication.js"></script>
+  <script src="js\config\main.js"></script>
 
   <style type="text/css">
     .bs-example {
@@ -37,7 +41,7 @@
 
   <div class="bs-example">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-img" href="Login.html"> <img src="img\efkalogo.png" alt="efka" class="center" height:40%> </a>
+      <a class="navbar-img"> <img src="img\efkalogo.png" alt="efka" class="center" height:40%> </a>
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -53,16 +57,62 @@
         </div>
       </div>
     </nav>
+  </div>
+  <form>
 
-    <h1>Hello, Citizen</h1>
+   <span class="login100-form-title">
+            My profile
+        </span>
+   
 
-    <p id="profileget()" ></p>
-    <button type="button" class="loginbutton" onclick="profileget()">Profile</button>
+    <div class="field mt-2">
+      <label class="center" for="citizen_name">Name:</label>
+      <input type="text" id="citizen_name" name="citizen_name" readonly="readonly" class="center"/>
+    </div>
+    <div class="field mt-2">
+      <label class="center" for="citizen_surname">Lastname:</label>
+      <input type="text" id="citizen_surname" name="citizen_surname" readonly="readonly" class="center" />
+    </div>
+    <div class="field mt-2">
+      <label class="center" for="amka">ΑΜΚΑ:</label>
+      <input type="text" id="amka" name="amka" readonly="readonly" class="center"/>
+    </div>
+    <div class="field mt-2">
+      <label class="center" for="citizen_email">Email:</label>
+      <input type="text" id="citizen_email" name="citizen_email" readonly="readonly" class="center" />
+    </div>
+    <div class="field mt-2">
+      <label class="center" for="citizen_phone">Phone:</label>
+      <input type="text" id="citizen_phone" name="citizen_phone" readonly="readonly" class="center"/>
+    </div>
+
+  </form>
+
+
 </body>
 
 <footer>
   <br>
   <h6> EFKA COPYRIGHT © 2019. ALL RIGHTS RESERVED - DESIGNED BY Team4</h6>
 </footer>
+
+<script>
+  $.ajax({
+    url: "http://localhost:8080/getcitizen",
+    type: "GET",
+    dataType: 'json',
+    success: function (data) {
+      console.log(data.citizen_surname);
+      document.getElementById("citizen_name").value = data.citizen_name;
+      document.getElementById("citizen_surname").value = data.citizen_surname;
+      document.getElementById("amka").value = data.amka;
+      document.getElementById("citizen_email").value = data.citizen_email;
+      document.getElementById("citizen_phone").value = data.citizen_phone;
+    },
+    error: function (e) {
+      alert(e)
+    }
+  })
+</script>
 
 </html>

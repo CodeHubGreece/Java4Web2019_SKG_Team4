@@ -35,7 +35,7 @@
 
     <div class="bs-example">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-            <a class="navbar-img" href="Login.html"> <img src="img\efkalogo.png" alt="efka" class="center" height:40%>
+            <a class="navbar-img"> <img src="img\efkalogo.png" alt="efka" class="center" height:40%>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -54,8 +54,36 @@
                 </div>
             </div>
         </nav>
+    </div>
 
-        <h1>Hello, I'm a happy doctor</h1>
+    <form>
+
+    <span class="login100-form-title">
+      My profile
+    </span>
+
+        <div class="field mt-2">
+            <label class="center" for="doctor_name">Name:</label>
+            <input type="text" id="doctor_name" name="doctor_name" readonly="readonly" class="center"/>
+        </div>
+        <div class="field mt-2">
+            <label class="center" for="doctor_surname">Lastname:</label>
+            <input type="text" id="doctor_surname" name="doctor_surname" readonly="readonly" class="center" />
+        </div>
+        <div class="field mt-2">
+            <label class="center" for="specialty_name">Specialty:</label>
+            <input type="text" id="specialty_name" name="specialty_name" readonly="readonly" class="center"/>
+        </div>
+        <div class="field mt-2">
+            <label class="center" for="doctor_email">Email:</label>
+            <input type="text" id="doctor_email" name="doctor_email" readonly="readonly" class="center" />
+        </div>
+        <div class="field mt-2">
+            <label class="center" for="doctor_phone">Phone:</label>
+            <input type="text" id="doctor_phone" name="doctor_phone" readonly="readonly" class="center"/>
+        </div>
+
+    </form>
 
 </body>
 
@@ -63,5 +91,24 @@
     <br>
     <h6> EFKA COPYRIGHT © 2019. ALL RIGHTS RESERVED - DESIGNED BY Team4</h6>
 </footer>
+
+<script>
+    $.ajax({
+        url: "http://localhost:8080/getdoctorprofile",
+        type: "GET",
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            document.getElementById("doctor_name").value = data.doctor_name;
+            document.getElementById("doctor_surname").value = data.doctor_surname;
+            document.getElementById("specialty_name").value = data.specialty.specialty_name;
+            document.getElementById("doctor_email").value = data.doctor_email;
+            document.getElementById("doctor_phone").value = data.doctor_phone;
+        },
+        error: function (e) {
+            alert(e)
+        }
+    })
+</script>
 
 </html>

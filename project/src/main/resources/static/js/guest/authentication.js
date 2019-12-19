@@ -1,5 +1,6 @@
 const SESSION_STORAGE_LOGIN_TOKEN_NAME = "userID";
 const ROOT_PATH = "http::/localhost:8080";
+
 function login(usernameElement, passwordElement) {
     let username = usernameElement && usernameElement.value ? usernameElement.value : "";
     let password = passwordElement && passwordElement.value ? passwordElement.value : "";
@@ -16,6 +17,7 @@ function login(usernameElement, passwordElement) {
             $.ajax({
                 url: "http://localhost:8080/user",
                 type: 'GET',
+                dataType: 'json',
                 success: function(data){
                     if (data.role==='CITIZEN'){
                         window.location.replace("http://localhost:8080/Profile.html");
@@ -32,10 +34,12 @@ function login(usernameElement, passwordElement) {
         }
     });
 }
+
 function logOut(){
     sessionStorage.clear();
     window.location.replace("login.html");
 }
+
 function register() {
     let username = document.getElementById('username').value;
     let citizen_password = document.getElementById('citizen_password').value;

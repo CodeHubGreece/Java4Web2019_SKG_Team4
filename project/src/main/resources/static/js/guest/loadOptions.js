@@ -31,29 +31,7 @@ $.ajax({
         alert("Error: " + text);
     }
 });
-function loadDoctors(selectedSpecialtyIndex,data) {
 
-    if (selectedSpecialtyIndex >= 0 && data[selectedSpecialtyIndex] && data[selectedSpecialtyIndex].doctor) {
-        const doctors = data[selectedSpecialtyIndex].doctor;
-        $("#doctors").html('');
-        for (let doctor of doctors) {
-            let doctorName = "";
-            if (doctor.user) {
-                if (doctor.user.doctor_name) {
-                    doctorName += doctor.user.doctor_name + " ";
-                }
-                if (doctor.user.doctor_surname) {
-                    doctorName += doctor.user.doctor_surname+ " ";
-                }
-            }
-            if (doctorName) {
-                $("#doctors").append("<option value='" + doctor.doctorId + "'>" + doctorName + "</option>")
-            }
-        }
-    }
-}
-
-// load specialities
 function create_appointment(specialityElem, doctornameElem, dateElem, descriptionElem, moreinfoElem) {
 
     let specialityName = specialityElem && specialityElem.value ? specialityElem.value : "";
