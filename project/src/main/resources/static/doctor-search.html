@@ -53,6 +53,58 @@
                 </div>
             </div>
         </nav>
+
+        <div class="bs-example">
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                    <th>Appointment</th>
+                    <th>Sector</th>
+                    <th>Doctor</th>
+                    <th>Date and time</th>
+                    <th>Short explanation</th>
+                    <th>More Comments</th>
+                    <th>Actions</th><td> 
+    
+                </tr>
+                </thead>
+                <tbody id="table-body">
+                <tr>
+                    <td id="appointment_id" name="appointment_id"></td>
+                    <td id="specialityName" name="specialityName"></td>
+                    <td id="doctorId" name="doctorId"></td>
+                    <td id="appointment_date" type="datetime-local" name="appointment_date"></td>
+                    <td id="appointment_description" name="description"></td>
+                    <td id="appointment_comments" name="more_comments"></td>
+                    <td id="appointment_actions" name="appointment_actions"> </td>
+    
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    
+    
+        <div class="container">
+            <div class="text-center">
+                <form>
+                    <div class="form-group mx-auto">
+                        <label for="fromAppointmentDate">From Date</label>
+                        <input id="fromAppointmentDate" class="center" type="datetime-local" name="fromAppointmentDate"
+                               value="mm-dd-12T19:30" min="1920-06-07T00:00" max="2030-06-14T00:00">
+                    </div>
+                    <div class="form-group mx-auto">
+                        <label for="toAppointmentDate">To Date</label>
+                        <input id="toAppointmentDate" class="center" type="datetime-local" name="toAppointmentDate"
+                               value="mm-dd-12T19:30" min="1920-06-07T00:00" max="2030-06-14T00:00">
+                    </div>
+                    
+                   
+                </form>
+            </div>
+        </div>
+        <br> <br> <br> <br>
+
 </body>
 
 <footer>
