@@ -37,18 +37,34 @@ function deleteAppointment(id){
     
     });
 }
-function editAppointment(id){
+function editAppointment(ispecialityElem, doctornameElem, dateElem, descriptionElem, moreinfoElem){
+   
+    //let specialityName = specialityElem && specialityElem.value ? specialityElem.value : "";
+    let doctorId = doctornameElem && doctornameElem.value ? doctornameElem.value : "";
+    let appointment_date = dateElem && dateElem.value ?  dateElem.value : "";
+    let appointment_description = descriptionElem &&descriptionElem.value ? descriptionElem.value : "";
+    let appointment_comments = moreinfoElem && moreinfoElem.value ? moreinfoElem.value : "";
+
+
     $.ajax({
-        url: ROOT_PATH + "/editAppointment/"+id,
+        url: ROOT_PATH + "/editAppointment/"+ id,
         type: "PUT",
+        data: JSON.stringify({
+                'specialityName':specialityName,
+                'doctorId': doctorId,
+                'appointment_date': appointment_date,
+                'appointment_description': appointment_description,
+                'appointment_comments': appointment_comments
+            }),
         dataType : "json",
         contentType:"application/json",
         success: function (data) {
-            console.log(data);
-            $("#table-body #appointmentRow"+ id).remove();
+            console.log("edit" + data);
+           
         },
-        error: function (e) {
-            alert(e);
+
+        error: function () {
+            alert("Coould not execute Edit");
         }
     
     });
