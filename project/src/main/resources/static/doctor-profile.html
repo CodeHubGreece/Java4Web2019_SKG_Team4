@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Profile Page
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="css\project.css">
+    <link rel="stylesheet" type="text/css" href="css\footer.css">
+    <link rel="stylesheet" type="text/css" href="css\searchbar.css">
+    <link rel="stylesheet" type="text/css" href="css\nav-bar.css">
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap 4 Navbar Fixed to Top</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .bs-example {
+            margin: 20px;
+        }
+
+        body {
+            padding-top: 70px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-img"> <img src="img\efkalogo.png" alt="efka" class="center" height:40%>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="doctor-profile.html" class="nav-item nav-link">Profile</a>
+                    <a href="view-appointment.html" class="nav-item nav-link">View Appointment</a>
+                    <a href="doctor-search.html" class="nav-item nav-link">Search</a>
+                    <a href="view-details.html" class="nav-item nav-link">View Details</a>
+
+                </div>
+                <div class="navbar-nav ml-auto">
+                    <a href="Login.html" class="nav-item nav-link" onclick="logOut()">Log Out</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+<<<<<<< HEAD
+    <form>
+
+    <span class="login100-form-title">
+      My profile
+    </span>
+
+        <div class="field mt-2">
+            <label class="center" for="doctor_name">Name:</label>
+            <input type="text" id="doctor_name" name="doctor_name" readonly="readonly" class="center"/>
+        </div>
+        <div class="field mt-2">
+            <label class="center" for="doctor_surname">Lastname:</label>
+            <input type="text" id="doctor_surname" name="doctor_surname" readonly="readonly" class="center" />
+        </div>
+        <div class="field mt-2">
+            <label class="center" for="specialty_name">Specialty:</label>
+            <input type="text" id="specialty_name" name="specialty_name" readonly="readonly" class="center"/>
+        </div>
+        <div class="field mt-2">
+            <label class="center" for="doctor_email">Email:</label>
+            <input type="text" id="doctor_email" name="doctor_email" readonly="readonly" class="center" />
+        </div>
+        <div class="field mt-2">
+            <label class="center" for="doctor_phone">Phone:</label>
+            <input type="text" id="doctor_phone" name="doctor_phone" readonly="readonly" class="center"/>
+        </div>
+
+    </form>
+=======
+        <h1>Hello, I'm a Doctor</h1>
+
+
+        <b class="center">Doctor ID:
+            <i id=doctor_id name=doctor_id></i> </b> <br>
+        
+            <b class="center">First Name:
+            <i id=doctor_name name=doctor_name ></i> </b> <br>
+        
+            <b class="center">Last Name:
+            <i id=doctor_surname name=doctor_surname > </i> </b> <br>
+        
+            <b class="center">Specialty:
+            <i id=specialty_id name=specialty_id ></i> </b> <br>
+        
+            <b class="center">Email:
+            <i id=doctor_email name=doctor_email > </i> </b> <br>
+        
+            <b class="center">Phone: 
+            <i id=doctor_phone name=doctor_phone ></i></b>
+
+>>>>>>> refs/remotes/origin/master
+
+</body>
+
+<footer>
+    <br>
+    <h6> EFKA COPYRIGHT © 2019. ALL RIGHTS RESERVED - DESIGNED BY Team4</h6>
+</footer>
+
+<script>
+    $.ajax({
+        url: "http://localhost:8080/getdoctorprofile",
+        type: "GET",
+        dataType: 'json',
+        success: function (data) {
+            console.log(data);
+            document.getElementById("doctor_name").value = data.doctor_name;
+            document.getElementById("doctor_surname").value = data.doctor_surname;
+            document.getElementById("specialty_name").value = data.specialty.specialty_name;
+            document.getElementById("doctor_email").value = data.doctor_email;
+            document.getElementById("doctor_phone").value = data.doctor_phone;
+        },
+        error: function (e) {
+            alert(e)
+        }
+    })
+</script>
+
+</html>

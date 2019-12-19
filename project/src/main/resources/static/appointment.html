@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+​
+
+<head>
+    <title>
+        Appointment page
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="css\project.css">
+    <link rel="stylesheet" type="text/css" href="css\footer.css">
+    <link rel="stylesheet" type="text/css" href="css\searchbar.css">
+    <link rel="stylesheet" type="text/css" href="css\nav-bar.css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap 4 Navbar Fixed to Top</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <script src="js\guest\loadOptions.js"></script>
+    <script src="js\config\main.js"></script>
+
+    <style type="text/css">
+        .bs-example {
+            margin: 20px;
+        }
+
+        body {
+            padding-top: 70px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="bs-example">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-img"> <img src="img\efkalogo.png" alt="efka" class="center" height:40%>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="Profile.html" class="nav-item nav-link">Profile</a>
+                    <a href="appointment.html" class="nav-item nav-link">Create an Appointment</a>
+                    <a href="Search.html" class="nav-item nav-link">Search</a>
+                </div>
+                <div class="navbar-nav ml-auto">
+                    <a href="Login.html" class="nav-item nav-link" onclick="logOut()">Log Out</a>
+                </div>
+            </div>
+        </nav>
+
+        ​ <form>
+            <h3 class="title-custom"> Sector</h3>
+            <select id="specialties" name="special" class="reg1">
+
+            </select> <br>
+            <h3 class="title-custom"> Doctor</h3>
+            <select id="doctors" name="doctor_name" class="reg1">
+
+            </select> <br>
+
+            <h3 class="title-custom">Date and time</h3>
+
+            <input id="appointmentDate" class="center" type="datetime-local" name="appointmentDate" value="mm-dd-12T19:30"
+                min="1920-06-07T00:00" max="2030-06-14T00:00"> <br>
+
+            <h3 class="title-custom"> Short explanation</h3>
+
+            <textarea id="description" name="description" class="center" placeholder="Tell us a few things about your issue."></textarea> <br>
+            
+            <h3 class="title-custom"> More Comments</h3>
+            <textarea id="more_comments" name="more_comments" class="center" placeholder="Comments."></textarea> <br>
+            
+            <button class="loginbutton" type="button" onclick="create_appointment(special,doctor_name,appointmentDate,description, more_comments)"> Create </button> <br> <br> <br>
+
+
+        </form>
+    </div> ​
+</body>
+​
+<footer>
+    <br>
+    <h6> EFKA COPYRIGHT © 2019. ALL RIGHTS RESERVED - DESIGNED BY Team4</h6>
+</footer>
+
+</html>
