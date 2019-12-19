@@ -35,7 +35,7 @@ public class CitizenController {
     }
     //για να διαγραψω απο την βαση (αφου βγάλω ένα Id μετα αλλάζουν όλα?)
     @DeleteMapping("/deleteAppointment/{appointmentId}")
-    public void deleteAppointmentById(@PathVariable Long appointmentId) {
+    public void deleteAppointmentById(@PathVariable String appointmentId) {
         citizenService.deleteAppointmentById(appointmentId);
     }
     //για να μετατρεψω ένα ραντεβού μου

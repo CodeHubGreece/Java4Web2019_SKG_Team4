@@ -79,9 +79,10 @@ public class CitizenService {
     }
 
     @PreAuthorize("hasRole('CITIZEN')")
-    public void deleteAppointmentById(@PathVariable Long appointmentId) {
-        getAppointmentById(appointmentId);
-        appointmentRepository.deleteById(appointmentId);
+    public void deleteAppointmentById(@PathVariable String appointmentId) {
+        Long appointmentID = Long.parseLong(appointmentId);
+        //getAppointmentById(appointmentID);
+        appointmentRepository.deleteById(appointmentID);
     }
 
     @PreAuthorize("hasRole('CITIZEN')")
