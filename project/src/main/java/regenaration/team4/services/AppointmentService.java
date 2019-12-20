@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import regenaration.team4.dto.DoctorSeatchDTO;
 import regenaration.team4.dto.SearchDTO;
 import regenaration.team4.entities.Appointment;
 import regenaration.team4.entities.Doctor;
@@ -43,11 +44,11 @@ public class AppointmentService {
         }
         return appointments;
     }
-    public List<Appointment> getFilteredDoctorAppointments(@RequestParam("fDate") Date fromDate, @RequestParam("tDate") Date toDate,Principal principal){
+    public List<Appointment> getFilteredDoctorAppointments(@RequestBody DoctorSeatchDTO doctorSeatchDTO, Principal principal){
         User user = userRepository.findByUsername(principal.getName());
         List<Appointment> appointments = appointmentRepository.findByDoctor(doctorRepository.findDoctorByUser(user));
         for (int i = 0; i < appointments.size(); i++) {
-            if ( ((appointments.get(i).getAppointment_date().compareTo(fromDate)) > 0) || ((appointments.get(i).getAppointment_date().compareTo(toDate)) < 0) ) {
+            if ( ((appointments.get(i).getAppointment_date().compareTo(doctorSeatchDTO.getFromDate())) < 0) || ((appointments.get(i).getAppointment_date().compareTo(doctorSeatchDTO.getToDate())) > 0) ) {
                 appointments.remove(appointments.get(i));
             }
         }

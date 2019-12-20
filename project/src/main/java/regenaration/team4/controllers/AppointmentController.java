@@ -1,6 +1,7 @@
 package regenaration.team4.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import regenaration.team4.dto.DoctorSeatchDTO;
 import regenaration.team4.dto.SearchDTO;
 import regenaration.team4.entities.Appointment;
 import regenaration.team4.services.AppointmentService;
@@ -23,8 +24,12 @@ public class AppointmentController {
     public List<Appointment> getAllDoctorAppointments(Principal principal){
         return appointmentService.getAllDoctorAppointments(principal);
     }
-    @GetMapping("/getdoctorsearch")
+    /*@PostMapping("/getdoctorsearch")
     public List<Appointment> getDoctorSearch(@RequestParam("fDate")Date fromDate, @RequestParam("tDate") Date toDate,Principal principal){
         return appointmentService.getFilteredDoctorAppointments(fromDate,toDate,principal);
+    }*/
+    @PostMapping("/getdoctorsearch")
+    public List<Appointment> getDoctorSearch(@RequestBody DoctorSeatchDTO doctorSeatchDTO, Principal principal){
+        return appointmentService.getFilteredDoctorAppointments(doctorSeatchDTO,principal);
     }
 }

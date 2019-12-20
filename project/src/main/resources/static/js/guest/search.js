@@ -111,3 +111,34 @@ function search() {
         alert("Παρακαλω συμπληρωστε ολα τα πεδια");
     }
 }
+
+function doctorsearch() {
+    const fromDate = document.getElementById("fromAppointmentDate").value;
+    const toDate = document.getElementById("toAppointmentDate").value;
+
+    if (fromDate && toDate) {
+        $.ajax({
+            url:  "http://localhost:8080/getdoctorsearch",
+            type: "POST",
+            dataType: 'json',
+            data: JSON.stringify({
+                "fromDate": fromDate,
+                "toDate": toDate,
+            }),
+            contentType: 'application/json',
+
+            success: function (appointments) {
+                console.log(appointments);
+                $("#table-body").html("");
+                jQuery.each(appointments, function (i, appointment) {
+                    $("#table-body").append("<tr id='appointmentRow" + appointment.appointment_id + "'><td>" + appointment.appointment_id + "</td><td>" + "2222222" + "</td><td>" + appointment.appointment_date + "</td><td>" + appointment.appointment_description + "</td><td>" + appointment.appointment_comments + "</td><td> <button type='button' class='btn btn-danger'> Citizen Profile </button> </td> </tr>");
+                });
+            },
+            error: function (e) {
+                alert(e);
+            }
+        })
+    } else {
+        alert("Παρακαλω συμπληρωστε ολα τα πεδια");
+    }
+}

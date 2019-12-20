@@ -18,6 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js\guest\search.js"></script>
     <style type="text/css">
         .bs-example {
             margin: 20px;
@@ -43,10 +44,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
                     <a href="doctor-profile.html" class="nav-item nav-link">Profile</a>
-                    <a href="view-appointment.html" class="nav-item nav-link">View Appointment</a>
-                    <a href="doctor-search.html" class="nav-item nav-link">Search</a>
-                    <a href="view-details.html" class="nav-item nav-link">View Details</a>
-
+                    <a href="doctor-search.html" class="nav-item nav-link">Search Appointment</a>
                 </div>
                 <div class="navbar-nav ml-auto">
                     <a href="Login.html" class="nav-item nav-link" onclick="logOut()">Log Out</a>
@@ -59,8 +57,7 @@
                 <thead>
                 <tr>
                     <th>Appointment</th>
-                    <th>Sector</th>
-                    <th>Doctor</th>
+                    <th>Citizen</th>
                     <th>Date and time</th>
                     <th>Short explanation</th>
                     <th>More Comments</th>
@@ -98,7 +95,10 @@
                         <input id="toAppointmentDate" class="center" type="datetime-local" name="toAppointmentDate"
                                value="mm-dd-12T19:30" min="1920-06-07T00:00" max="2030-06-14T00:00">
                     </div>
-                    
+                    <div class="text-center mt-2">
+                        <button class="loginbutton btn btn-primary" type="button" onclick="doctorsearch()"> Search </button>
+
+                    </div>
                    
                 </form>
             </div>
