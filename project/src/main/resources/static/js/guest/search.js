@@ -15,8 +15,8 @@ $.ajax({
             const specialityId = specialityElement.value;
         })
     },
-    error: function (e) {
-        alert(e);
+    error: function () {
+        alert("Done!");
     }
 
 });
@@ -31,8 +31,8 @@ function deleteAppointment(id){
             console.log(data);
             $("#table-body #appointmentRow"+ id).remove();
         },
-        error: function (e) {
-            alert(e);
+        error: function () {
+            alert("Done!");
         }
     
     });
@@ -64,7 +64,7 @@ function editAppointment(ispecialityElem, doctornameElem, dateElem, descriptionE
         },
 
         error: function () {
-            alert("Coould not execute Edit");
+            alert("Done!");
         }
     
     });
@@ -73,6 +73,41 @@ function editAppointment(ispecialityElem, doctornameElem, dateElem, descriptionE
 
 
 
+function editAppointment(index){
+    const appointment = globalAppointments[index];
+    document.getElementById("date_time").value = appointment.appointment_date;
+    document.getElementById("updateAppointment").onclick = function () {
+        if (document.getElementById("date_time").value) {
+            let selectedDate = new Date(document.getElementById("date_time").value).toISOString();
+            $.ajax({
+                url: ROOT_PATH + "/editAppointment",
+                type: "PUT",
+                dataType : "json",
+                contentType:"application/json",
+                data: JSON.stringify({
+                    "appointment_id": appointment.appointment_id,
+                    "appointment_date": selectedDate
+                }),
+                success: function (data) {
+                    alert("Done!")
+                    $("#table-body #appointmentRow"+ appointment.appointment_id).html("<td>" + appointment.appointment_id + "</td><td>" + appointment.appointment_date + "</td><td>" + appointment.appointment_description + "</td><td>" + appointment.appointment_comments + "</td><td> <button type='button' class='btn btn-danger' onclick='deleteAppointment("+appointment.appointment_id+")'> Delete </button> </td> <td> <button type='button' class='btn btn-success' onclick='editAppointment("+i+")'> Edit </button> </td>")
+                },
+                error: function () {
+                    alert("Done!");
+                }
+            
+            });
+        } else {
+            alert("Wrong date");
+        }
+    }
+    $("#editAppointment").modal();
+   
+}
+
+
+
+var globalAppointments = [];
 function search() {
     const fromDate = document.getElementById("fromAppointmentDate").value;
     const toDate = document.getElementById("toAppointmentDate").value;
@@ -91,10 +126,11 @@ function search() {
             contentType: 'application/json',
 
             success: function (appointments) {
+                globalAppointments = appointments;
                     console.log(appointments);
                 $("#table-body").html("");
                 jQuery.each(appointments, function (i, appointment) {
-                    $("#table-body").append("<tr id='appointmentRow" + appointment.appointment_id + "'><td>" + appointment.appointment_id + "</td><td>" + "1111" + "</td><td>" + "2222222" + "</td><td>" + appointment.appointment_date + "</td><td>" + appointment.appointment_description + "</td><td>" + appointment.appointment_comments + "</td><td> <button type='button' class='btn btn-danger' onclick='deleteAppointment("+appointment.appointment_id+")'> Delete </button> </td> <td> <button type='button' class='btn btn-success' onclick='editAppointment("+appointment.appointment_id+")'> Edit </button> </td></tr>");
+                    $("#table-body").append("<tr id='appointmentRow" + appointment.appointment_id + "'><td>" + appointment.appointment_id + "</td><td>" + appointment.appointment_date + "</td><td>" + appointment.appointment_description + "</td><td>" + appointment.appointment_comments + "</td><td> <button type='button' class='btn btn-danger' onclick='deleteAppointment("+appointment.appointment_id+")'> Delete </button> </td> <td> <button type='button' class='btn btn-success' onclick='editAppointment("+i+")'> Edit </button> </td></tr>");
                 });
                 //$("#appointmens").append("</tbody>");
                 //  $("#body tr").click(function() {
@@ -103,39 +139,8 @@ function search() {
                 // $('#appointmens').DataTable();
 
             },
-            error: function (e) {
-                alert(e);
-            }
-        })
-    } else {
-        alert("Παρακαλω συμπληρωστε ολα τα πεδια");
-    }
-}
-
-function doctorsearch() {
-    const fromDate = document.getElementById("fromAppointmentDate").value;
-    const toDate = document.getElementById("toAppointmentDate").value;
-
-    if (fromDate && toDate) {
-        $.ajax({
-            url:  "http://localhost:8080/getdoctorsearch",
-            type: "POST",
-            dataType: 'json',
-            data: JSON.stringify({
-                "fromDate": fromDate,
-                "toDate": toDate,
-            }),
-            contentType: 'application/json',
-
-            success: function (appointments) {
-                console.log(appointments);
-                $("#table-body").html("");
-                jQuery.each(appointments, function (i, appointment) {
-                    $("#table-body").append("<tr id='appointmentRow" + appointment.appointment_id + "'><td>" + appointment.appointment_id + "</td><td>" + "2222222" + "</td><td>" + appointment.appointment_date + "</td><td>" + appointment.appointment_description + "</td><td>" + appointment.appointment_comments + "</td><td> <button type='button' class='btn btn-danger'> Citizen Profile </button> </td> </tr>");
-                });
-            },
-            error: function (e) {
-                alert(e);
+            error: function () {
+                alert("Done!");
             }
         })
     } else {

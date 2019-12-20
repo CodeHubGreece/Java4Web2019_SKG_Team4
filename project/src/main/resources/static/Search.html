@@ -14,17 +14,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Bootstrap 4 Navbar Fixed to Top</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<!--    <link rel="stylesheet" href="./searchPage.css">-->
+    <!--    <link rel="stylesheet" href="./searchPage.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<!--    <script src="js\guest\main.js"></script>-->
+    <!--    <script src="js\guest\main.js"></script>-->
     <script src="js\guest\search.js"></script>
 
     <style type="text/css">
-
         .bs-example {
             margin: 20px;
         }
@@ -38,89 +37,117 @@
 
 <body>
 
-<div class="bs-example">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-img" href="Login.html"> <img src="img\efkalogo.png" alt="efka" class="center" height:40%>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav">
-                <a href="Profile.html" class="nav-item nav-link">Profile</a>
-                <a href="appointment.html" class="nav-item nav-link">Create an Appointment</a>
-                <a href="Search.html" class="nav-item nav-link">Search</a>
-            </div>
-            <div class="navbar-nav ml-auto">
-                <a href="Login.html" class="nav-item nav-link" onclick="logOut()">Log Out</a>
-            </div>
-        </div>
-    </nav>
-
     <div class="bs-example">
-        <table class="table table-dark">
-            <thead>
-            <tr>
-                <th>Appointment</th>
-                <th>Specialty</th>
-                <th>Doctor</th>
-                <th>Date and time</th>
-                <th>Short explanation</th>
-                <th>More Comments</th>
-                <th>Delete</th><td> 
-                <th>Edit</th><td></td>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+            <a class="navbar-img" href="Login.html"> <img src="img\efkalogo.png" alt="efka" class="center" height:40%>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-            </tr>
-            </thead>
-            <tbody id="table-body">
-            <tr>
-                <td id="appointment_id" name="appointment_id"></td>
-                <td id="specialityName" name="specialityName"></td>
-                <td id="doctorId" name="doctorId"></td>
-                <td id="appointment_date" type="datetime-local" name="appointment_date"></td>
-                <td id="appointment_description" name="description"></td>
-                <td id="appointment_comments" name="more_comments"></td>
-                <td id="appointment_actions" name="appointment_actions"> </td>
-                <td id="appointment_Edit" name="appointment_Edit"> </td>
-
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-
-    <div class="container">
-        <div class="text-center">
-            <form>
-                <div class="form-group mx-auto">
-                    <label for="fromAppointmentDate">From Date</label>
-                    <input id="fromAppointmentDate" class="center" type="datetime-local" name="fromAppointmentDate"
-                           value="mm-dd-12T19:30" min="1920-06-07T00:00" max="2030-06-14T00:00">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="Profile.html" class="nav-item nav-link">Profile</a>
+                    <a href="appointment.html" class="nav-item nav-link">Create an Appointment</a>
+                    <a href="Search.html" class="nav-item nav-link">Search</a>
                 </div>
-                <div class="form-group mx-auto">
-                    <label for="toAppointmentDate">To Date</label>
-                    <input id="toAppointmentDate" class="center" type="datetime-local" name="toAppointmentDate"
-                           value="mm-dd-12T19:30" min="1920-06-07T00:00" max="2030-06-14T00:00">
+                <div class="navbar-nav ml-auto">
+                    <a href="Login.html" class="nav-item nav-link" onclick="logOut()">Log Out</a>
                 </div>
-                <div class="form-group mx-auto">
-                    <label for="specialties">Specialty</label>
-                    <select id="specialties" name="special" class="reg1">
-                    </select>
-                </div>
-                <div class="text-center mt-2">
-                    <button class="loginbutton btn btn-primary" type="button" onclick="search()"> Search </button>
-                
-                </div>
-            </form>
+            </div>
+        </nav>
+
+        <div class="bs-example">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Appointment</th>
+                        
+                        <th>Date and time</th>
+                        <th>Short explanation</th>
+                        <th>More Comments</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
+                        
+
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <tr>
+                        <td id="appointment_id" name="appointment_id"></td>
+                        
+                        <td id="appointment_date" type="datetime-local" name="appointment_date"></td>
+                        <td id="appointment_description" name="description"></td>
+                        <td id="appointment_comments" name="more_comments"></td>
+                        <td id="appointment_actions" name="appointment_actions"> </td>
+                        <td id="appointment_Edit" name="appointment_Edit"> </td>
+
+                    </tr>
+                </tbody>
+            </table>
         </div>
-    </div>
-    <br> <br> <br> <br>
-    <footer class="text-center">
-        <br>
-        <h6> EFKA COPYRIGHT © 2019. ALL RIGHTS RESERVED - DESIGNED BY Team4</h6>
-    </footer>
+
+
+
+        <div class="container">
+            <div class="text-center">
+                <form>
+                    <div class="form-group mx-auto">
+                        <label for="fromAppointmentDate">From Date</label>
+                        <input id="fromAppointmentDate" class="center" type="datetime-local" name="fromAppointmentDate"
+                            value="mm-dd-12T19:30" min="1920-06-07T00:00" max="2030-06-14T00:00">
+                    </div>
+                    <div class="form-group mx-auto">
+                        <label for="toAppointmentDate">To Date</label>
+                        <input id="toAppointmentDate" class="center" type="datetime-local" name="toAppointmentDate"
+                            value="mm-dd-12T19:30" min="1920-06-07T00:00" max="2030-06-14T00:00">
+                    </div>
+                    <div class="form-group mx-auto">
+                        <label for="specialties">Specialty</label>
+                        <select id="specialties" name="special" class="reg1">
+                        </select>
+                    </div>
+                    <div class="text-center mt-2">
+                        <button class="loginbutton btn btn-primary" type="button" onclick="search()"> Search </button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="editAppointment" tabindex="-1" role="dialog" aria-labelledby="editAppointmentLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editAppointmentLabel">Edit appointment</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <form>
+                                <div class="form-group mx-auto">
+                                    <label for="date_time">Date and time</label>
+                                    <input id="date_time" class="center form-control" type="datetime-local"
+                                        name="date_time">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="updateAppointment" type="button" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br> <br> <br> <br>
+        <footer class="text-center">
+            <br>
+            <h6> EFKA COPYRIGHT © 2019. ALL RIGHTS RESERVED - DESIGNED BY Team4</h6>
+        </footer>
 </body>
 
 </html>
