@@ -31,6 +31,9 @@ function login(usernameElement, passwordElement) {
                     }
                 }
             });
+        },
+        error: function (){
+            alert("wrong username or password!")
         }
     });
 }
